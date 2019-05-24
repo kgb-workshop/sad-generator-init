@@ -15,7 +15,8 @@
     "download-git-repo": "^1.1.0",
     "fs-extra": "^8.0.1",
     "inquirer": "^6.3.1",
-    "parse-author": "^2.0.0"
+    "parse-author": "^2.0.0",
+    "validator": "^11.0.0"
   },
   "devDependencies": {
     "terminalizer": "^0.6.1"

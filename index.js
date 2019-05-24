@@ -13,6 +13,7 @@ const websitePath = path.resolve('.', 'website');
 const csvPath = path.resolve(kgPath, 'csv');
 const downloadGithub = require('download-git-repo');
 const parseAuthor = require('parse-author');
+const validator = require('validator');
 
 console.log(fs.readFileSync(path.resolve(__dirname, 'intro.txt'), 'utf-8'));
 
@@ -28,7 +29,10 @@ inquirer
       type: 'input',
       name: 'baseurl',
       message: 'Base URL',
-      default: 'http://example.com/'
+      default: 'http://example.com/',
+      validate: (data) => {
+        return validator.isURL(data) ? true : 'Please provide a valid URL.';
+      }
     },
     {
       type: 'input',
@@ -48,7 +52,10 @@ inquirer
     {
       type: 'input',
       name: 'email',
-      message: 'Email'
+      message: 'Email',
+      validate: (data) => {
+        return validator.isEmail(data) ? true : 'Please provide a valid email or leave empty.';
+      }
     },
     {
       type: 'input',

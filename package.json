@@ -1,0 +1,23 @@
+{
+  "name": "sad-generator-cli",
+  "version": "0.0.1",
+  "description": "CLI to set up the SAD Generator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "sad-generator-init": "index.js"
+  },
+  "author": "Pieter Heyvaert <pheyvaer.heyvaert@ugent.be> (https://pieterheyvaert.com)",
+  "license": "MIT",
+  "dependencies": {
+    "download-git-repo": "^1.1.0",
+    "fs-extra": "^8.0.1",
+    "inquirer": "^6.3.1",
+    "parse-author": "^2.0.0"
+  },
+  "devDependencies": {
+    "terminalizer": "^0.6.1"
+  }
+}

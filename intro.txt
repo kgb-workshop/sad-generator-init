@@ -1,0 +1,4 @@
+This utility will walk you through setting up the SAD generator.
+It only covers the most common items, and tries to guess sensible defaults.
+
+Press ^C at any time to quit.

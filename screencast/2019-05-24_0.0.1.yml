@@ -1,0 +1,531 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /home/pieter/Developer/sad-generator-init/test
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 24
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 1046
+    content: "\e]0;obiwan:/tmp\a\e]7;file:///tmp\a\e]0;obiwan: /tmp\a\e[01;32mobiwan\e[00m:\e[01;34m/tmp\e[00m$ "
+  - delay: 1168
+    content: s
+  - delay: 92
+    content: a
+  - delay: 113
+    content: d
+  - delay: 161
+    content: '-'
+  - delay: 92
+    content: 'generator-init '
+  - delay: 565
+    content: "\r\n"
+  - delay: 257
+    content: "This utility will walk you through setting up the SAD generator.\r\nIt only covers the most common items, and tries to guess sensible defaults.\r\n\r\nPress ^C at any time to quit.\r\n\r\n"
+  - delay: 9
+    content: "\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0m\e[2m(My Acadamic Event) \e[22m\e[33D\e[33C"
+  - delay: 868
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mK\e[14D\e[14C"
+  - delay: 78
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKG\e[15D\e[15C"
+  - delay: 122
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB\e[16D\e[16C"
+  - delay: 231
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB \e[17D\e[17C"
+  - delay: 137
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB W\e[18D\e[18C"
+  - delay: 134
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB Wo\e[19D\e[19C"
+  - delay: 107
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB Wor\e[20D\e[20C"
+  - delay: 87
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB Work\e[21D\e[21C"
+  - delay: 89
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB Works\e[22D\e[22C"
+  - delay: 102
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB Worksh\e[23D\e[23C"
+  - delay: 93
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB Worksho\e[24D\e[24C"
+  - delay: 65
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0mKGB Workshop\e[25D\e[25C"
+  - delay: 330
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEvent name\e[22m\e[0m \e[0m\e[36mKGB Workshop\e[39m\e[25D\e[25C\r\n"
+  - delay: 5
+    content: "\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0m\e[2m(http://example.com/) \e[22m\e[33D\e[33C"
+  - delay: 802
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mh\e[12D\e[12C"
+  - delay: 79
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mht\e[13D\e[13C"
+  - delay: 143
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhtt\e[14D\e[14C"
+  - delay: 273
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttp\e[15D\e[15C"
+  - delay: 141
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps\e[16D\e[16C"
+  - delay: 323
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps:\e[17D\e[17C"
+  - delay: 222
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps:/\e[18D\e[18C"
+  - delay: 121
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://\e[19D\e[19C"
+  - delay: 632
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://k\e[20D\e[20C"
+  - delay: 150
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kg\e[21D\e[21C"
+  - delay: 127
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb\e[22D\e[22C"
+  - delay: 264
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-\e[23D\e[23C"
+  - delay: 149
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-w\e[24D\e[24C"
+  - delay: 105
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-wo\e[25D\e[25C"
+  - delay: 122
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-wor\e[26D\e[26C"
+  - delay: 94
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-work\e[27D\e[27C"
+  - delay: 111
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-works\e[28D\e[28C"
+  - delay: 105
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-worksh\e[29D\e[29C"
+  - delay: 97
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-worksho\e[30D\e[30C"
+  - delay: 62
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-workshop\e[31D\e[31C"
+  - delay: 289
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-workshop.\e[32D\e[32C"
+  - delay: 223
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-workshop.o\e[33D\e[33C"
+  - delay: 81
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-workshop.or\e[34D\e[34C"
+  - delay: 72
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-workshop.org\e[35D\e[35C"
+  - delay: 266
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0mhttps://kgb-workshop.org/\e[36D\e[36C"
+  - delay: 387
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mBase URL\e[22m\e[0m \e[0m\e[36mhttps://kgb-workshop.org/\e[39m\e[36D\e[36C\r\n\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0m\e[38D\e[38C"
+  - delay: 1232
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mj\e[39D\e[39C"
+  - delay: 87
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mjo\e[40D\e[40C"
+  - delay: 429
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mj\e[39D\e[39C"
+  - delay: 122
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0m\e[38D\e[38C"
+  - delay: 174
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJ\e[39D\e[39C"
+  - delay: 152
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJo\e[40D\e[40C"
+  - delay: 121
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJoh\e[41D\e[41C"
+  - delay: 246
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn\e[42D\e[42C"
+  - delay: 129
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn \e[43D\e[43C"
+  - delay: 173
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn D\e[44D\e[44C"
+  - delay: 63
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Do\e[45D\e[45C"
+  - delay: 107
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe\e[46D\e[46C"
+  - delay: 216
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe \e[47D\e[47C"
+  - delay: 181
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <\e[48D\e[48C"
+  - delay: 1410
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <j\e[49D\e[49C"
+  - delay: 95
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <jo\e[50D\e[50C"
+  - delay: 119
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <joh\e[51D\e[51C"
+  - delay: 200
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john\e[52D\e[52C"
+  - delay: 215
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@\e[53D\e[53C"
+  - delay: 205
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@d\e[54D\e[54C"
+  - delay: 216
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@do\e[55D\e[55C"
+  - delay: 121
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe\e[56D\e[56C"
+  - delay: 210
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.\e[57D\e[57C"
+  - delay: 95
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.c\e[58D\e[58C"
+  - delay: 77
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.co\e[59D\e[59C"
+  - delay: 68
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com\e[60D\e[60C"
+  - delay: 256
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>\e[61D\e[61C"
+  - delay: 789
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>,\e[62D\e[62C"
+  - delay: 104
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, \e[63D\e[63C"
+  - delay: 634
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, J\e[64D\e[64C"
+  - delay: 117
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Ja\e[65D\e[65C"
+  - delay: 89
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jan\e[66D\e[66C"
+  - delay: 97
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane\e[67D\e[67C"
+  - delay: 104
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane \e[68D\e[68C"
+  - delay: 957
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <\e[69D\e[69C"
+  - delay: 337
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <j\e[70D\e[70C"
+  - delay: 312
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <\e[69D\e[69C"
+  - delay: 400
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <j\e[70D\e[70C"
+  - delay: 73
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <ja\e[71D\e[71C"
+  - delay: 104
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jan\e[72D\e[72C"
+  - delay: 61
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane\e[73D\e[73C"
+  - delay: 665
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@\e[74D\e[74C"
+  - delay: 209
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@d\e[75D\e[75C"
+  - delay: 101
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@do\e[76D\e[76C"
+  - delay: 81
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@doe\e[77D\e[77C"
+  - delay: 169
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@doe.\e[78D\e[78C"
+  - delay: 70
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@doe.c\e[79D\e[79C"
+  - delay: 112
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@doe.co\r\n\e[0D"
+  - delay: 64
+    content: "\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@doe.co\r\nm\e[1D\e[1C"
+  - delay: 728
+    content: "\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0mJohn Doe <john@doe.com>, Jane <jane@doe.co\r\nm>\e[2D\e[2C"
+  - delay: 761
+    content: "\e[2K\e[1A\e[2K\e[G\e[32m?\e[39m \e[1mOrganizers (name <email> (website))\e[22m\e[0m \e[0m\e[36mJohn Doe <john@doe.com>, Jane <jane@doe.co\r\nm>\e[39m\e[2D\e[2C\r\n\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0m\e[9D\e[9C"
+  - delay: 1340
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mS\e[10D\e[10C"
+  - delay: 294
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSe\e[11D\e[11C"
+  - delay: 179
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSem\e[12D\e[12C"
+  - delay: 69
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSema\e[13D\e[13C"
+  - delay: 141
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSeman\e[14D\e[14C"
+  - delay: 227
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemant\e[15D\e[15C"
+  - delay: 82
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemanti\e[16D\e[16C"
+  - delay: 110
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic\e[17D\e[17C"
+  - delay: 103
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic \e[18D\e[18C"
+  - delay: 130
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic W\e[19D\e[19C"
+  - delay: 167
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic We\e[20D\e[20C"
+  - delay: 98
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web\e[21D\e[21C"
+  - delay: 278
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web,\e[22D\e[22C"
+  - delay: 90
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, \e[23D\e[23C"
+  - delay: 246
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, K\e[24D\e[24C"
+  - delay: 330
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Kn\e[25D\e[25C"
+  - delay: 80
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Kno\e[26D\e[26C"
+  - delay: 102
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Know\e[27D\e[27C"
+  - delay: 120
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowl\e[28D\e[28C"
+  - delay: 72
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowle\e[29D\e[29C"
+  - delay: 168
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowled\e[30D\e[30C"
+  - delay: 112
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowledg\e[31D\e[31C"
+  - delay: 72
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowledge\e[32D\e[32C"
+  - delay: 169
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowledge \e[33D\e[33C"
+  - delay: 159
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowledge G\e[34D\e[34C"
+  - delay: 182
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowledge Gr\e[35D\e[35C"
+  - delay: 45
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowledge Gra\e[36D\e[36C"
+  - delay: 51
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowledge Grap\e[37D\e[37C"
+  - delay: 87
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0mSemantic Web, Knowledge Graph\e[38D\e[38C"
+  - delay: 160
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTopics\e[22m\e[0m \e[0m\e[36mSemantic Web, Knowledge Graph\e[39m\e[38D\e[38C\r\n\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0m\e[10D\e[10C"
+  - delay: 1284
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mk\e[11D\e[11C"
+  - delay: 93
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkg\e[12D\e[12C"
+  - delay: 82
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb\e[13D\e[13C"
+  - delay: 212
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-\e[14D\e[14C"
+  - delay: 115
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-w\e[15D\e[15C"
+  - delay: 112
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-wo\e[16D\e[16C"
+  - delay: 118
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-wor\e[17D\e[17C"
+  - delay: 80
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-work\e[18D\e[18C"
+  - delay: 78
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-works\e[19D\e[19C"
+  - delay: 96
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-worksh\e[20D\e[20C"
+  - delay: 112
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-worksho\e[21D\e[21C"
+  - delay: 107
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0mkgb-workshop\e[22D\e[22C"
+  - delay: 406
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mTwitter\e[22m\e[0m \e[0m\e[36mkgb-workshop\e[39m\e[22D\e[22C\r\n\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0m\e[8D\e[8C"
+  - delay: 847
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0mi\e[9D\e[9C"
+  - delay: 74
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0min\e[10D\e[10C"
+  - delay: 151
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minf\e[11D\e[11C"
+  - delay: 125
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo\e[12D\e[12C"
+  - delay: 338
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@\e[13D\e[13C"
+  - delay: 302
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@k\e[14D\e[14C"
+  - delay: 162
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kg\e[15D\e[15C"
+  - delay: 104
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb\e[16D\e[16C"
+  - delay: 295
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-\e[17D\e[17C"
+  - delay: 119
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-w\e[18D\e[18C"
+  - delay: 144
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-wo\e[19D\e[19C"
+  - delay: 102
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-wor\e[20D\e[20C"
+  - delay: 88
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-work\e[21D\e[21C"
+  - delay: 120
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-works\e[22D\e[22C"
+  - delay: 103
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-worksh\e[23D\e[23C"
+  - delay: 89
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-worksho\e[24D\e[24C"
+  - delay: 79
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-workshop\e[25D\e[25C"
+  - delay: 329
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-workshop.\e[26D\e[26C"
+  - delay: 190
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-workshop.o\e[27D\e[27C"
+  - delay: 72
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-workshop.or\e[28D\e[28C"
+  - delay: 62
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0minfo@kgb-workshop.org\e[29D\e[29C"
+  - delay: 295
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEmail\e[22m\e[0m \e[0m\e[36minfo@kgb-workshop.org\e[39m\e[29D\e[29C\r\n\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m\e[13D\e[13C"
+  - delay: 1152
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m2\e[14D\e[14C"
+  - delay: 88
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m20\e[15D\e[15C"
+  - delay: 95
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m201\e[16D\e[16C"
+  - delay: 81
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m2019\e[17D\e[17C"
+  - delay: 214
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m2019-\e[18D\e[18C"
+  - delay: 201
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m2019-0\e[19D\e[19C"
+  - delay: 457
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m2019-06\e[20D\e[20C"
+  - delay: 317
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m2019-06-\e[21D\e[21C"
+  - delay: 131
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m2019-06-0\e[22D\e[22C"
+  - delay: 103
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m2019-06-03\e[23D\e[23C"
+  - delay: 157
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mStart date\e[22m\e[0m \e[0m\e[36m2019-06-03\e[39m\e[23D\e[23C\r\n\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m\e[11D\e[11C"
+  - delay: 474
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m2\e[12D\e[12C"
+  - delay: 116
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m20\e[13D\e[13C"
+  - delay: 115
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m201\e[14D\e[14C"
+  - delay: 94
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m2019\e[15D\e[15C"
+  - delay: 208
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m2019-\e[16D\e[16C"
+  - delay: 234
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m2019-0\e[17D\e[17C"
+  - delay: 181
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m2019-06\e[18D\e[18C"
+  - delay: 128
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m2019-06-\e[19D\e[19C"
+  - delay: 176
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m2019-06-0\e[20D\e[20C"
+  - delay: 94
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m2019-06-03\e[21D\e[21C"
+  - delay: 746
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mEnd date\e[22m\e[0m \e[0m\e[36m2019-06-03\e[39m\e[21D\e[21C\r\n\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0m\e[11D\e[11C"
+  - delay: 1301
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0mS\e[12D\e[12C"
+  - delay: 119
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0mSl\e[13D\e[13C"
+  - delay: 142
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0mSlo\e[14D\e[14C"
+  - delay: 56
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0mSlov\e[15D\e[15C"
+  - delay: 63
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0mSlove\e[16D\e[16C"
+  - delay: 130
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0mSloven\e[17D\e[17C"
+  - delay: 101
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0mSloveni\e[18D\e[18C"
+  - delay: 72
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0mSlovenia\e[19D\e[19C"
+  - delay: 106
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mLocation\e[22m\e[0m \e[0m\e[36mSlovenia\e[39m\e[19D\e[19C\r\n\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0m\e[14D\e[14C"
+  - delay: 957
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0mE\e[15D\e[15C"
+  - delay: 226
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0mES\e[16D\e[16C"
+  - delay: 190
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0mESW\e[17D\e[17C"
+  - delay: 79
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0mESWC\e[18D\e[18C"
+  - delay: 251
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0mESWC2\e[19D\e[19C"
+  - delay: 78
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0mESWC20\e[20D\e[20C"
+  - delay: 166
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0mESWC201\e[21D\e[21C"
+  - delay: 115
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0mESWC2019\e[22D\e[22C"
+  - delay: 560
+    content: "\e[2K\e[G\e[32m?\e[39m \e[1mSuper event\e[22m\e[0m \e[0m\e[36mESWC2019\e[39m\e[22D\e[22C\r\n\r\nDownloading required files...\r\n"
+  - delay: 1671
+    content: "Download complete.\r\nUpdating CSV files...\r\n"
+  - delay: 57
+    content: "Update complete.\r\n"
+  - delay: 6
+    content: "\e]0;obiwan:/tmp\a\e]7;file:///tmp\a\e]0;obiwan: /tmp\a\e[01;32mobiwan\e[00m:\e[01;34m/tmp\e[00m$ "
+  - delay: 2754
+    content: "logout\r\n"

@@ -4,7 +4,7 @@
   "description": "CLI to set up the SAD Generator.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha 'test/**/*.test.js'"
   },
   "bin": {
     "sad-generator-init": "bin/cli.js"
@@ -23,6 +23,7 @@
     "validator": "^11.0.0"
   },
   "devDependencies": {
+    "mocha": "^6.1.4",
     "terminalizer": "^0.6.1"
   },
   "repository": "https://github.com/kgb-workshop/sad-generator-init"

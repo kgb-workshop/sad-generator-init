@@ -5,9 +5,6 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const kgPath = path.resolve('.', 'kg');
-const websitePath = path.resolve('.', 'website');
-const csvPath = path.resolve(kgPath, 'csv');
 const downloadGithub = require('download-git-repo');
 const parseAuthor = require('parse-author');
 const replaceInFile = require('replace');
@@ -20,34 +17,44 @@ namespaces.fnml = 'http://semweb.mmlab.be/ns/fnml#';
 namespaces.fno = 'http://w3id.org/function/ontology#';
 namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
 
+let csvPath;
+
 function generate(answers, directory) {
-  console.log('\nDownloading required files...');
+  const kgPath = path.resolve(directory, 'kg');
+  const websitePath = path.resolve(directory, 'website');
+  csvPath = path.resolve(kgPath, 'csv');
 
-  downloadGithub('kgb-workshop/sad-generator', directory, function (err) {
-    //console.log(err ? 'Error' : 'Success');
-    if (err) {
-      console.error(err);
-    } else {
-      console.log('Download complete.');
-      console.log('Updating CSV files...');
-      writeGeneralInfo(answers);
-      writeTopics(answers);
-      writeOrganizers(answers);
+  return new Promise( (resolve, reject) => {
+    console.log('\nDownloading required files...');
 
-      // create empty CSV files
-      fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
-      fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
-      fs.writeFileSync(path.resolve(csvPath, 'subtopics.csv'), 'id,subtopic');
+    downloadGithub('kgb-workshop/sad-generator', directory, function (err) {
+      //console.log(err ? 'Error' : 'Success');
+      if (err) {
+        console.error(err);
+        reject(err);
+      } else {
+        console.log('Download complete.');
+        console.log('Updating CSV files...');
+        writeGeneralInfo(answers);
+        writeTopics(answers);
+        writeOrganizers(answers);
 
-      // update YARRRML and RML rules
-      replaceBaseURLRules(path.resolve(kgPath, 'mapping.yml'), path.resolve(kgPath, 'mapping.rml.ttl'), answers.baseurl);
+        // create empty CSV files
+        fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
+        fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
+        fs.writeFileSync(path.resolve(csvPath, 'subtopics.csv'), 'id,subtopic');
 
-      // remove files
-      fs.removeSync(path.resolve(kgPath, 'data.nt'));
-      fs.removeSync(path.resolve(websitePath, 'docs'));
+        // update YARRRML and RML rules
+        replaceBaseURLRules(path.resolve(kgPath, 'mapping.yml'), path.resolve(kgPath, 'mapping.rml.ttl'), answers.baseurl);
 
-      console.log('Update complete.');
-    }
+        // remove files
+        fs.removeSync(path.resolve(kgPath, 'data.nt'));
+        fs.removeSync(path.resolve(websitePath, 'docs'));
+
+        console.log('Update complete.');
+        resolve();
+      }
+    });
   });
 }
 
@@ -73,6 +80,15 @@ function writeOrganizers(answers) {
 
       if (organizer.name) {
         csv += organizer.name.replace(/ /g, '-').toLowerCase() + ',';
+
+        if (!organizer.email) {
+          organizer.email = ''
+        }
+
+        if (!organizer.url) {
+          organizer.url = ''
+        }
+
         csv += `${organizer.name},,${organizer.email},,,${organizer.url},,,\n`;
       } else {
         console.error('An organizer should at least have a name.');
@@ -96,36 +112,40 @@ function writeTopics(answers) {
 }
 
 function replaceBaseURLRules(yarrrmlFilePath, rmlFilePath, baseURL) {
-  replaceInFile({
-    regex: "http://example.com/resources/",
-    replacement: baseURL,
-    paths: [yarrrmlFilePath],
-    recursive: false,
-    silent: true,
-  });
+  return new Promise((resolve, reject) => {
+    replaceInFile({
+      regex: "http://example.com/resources/",
+      replacement: baseURL,
+      paths: [yarrrmlFilePath],
+      recursive: false,
+      silent: true,
+    });
 
-  const yaml = fs.readFileSync(yarrrmlFilePath, 'utf-8');
-  const y2r = new yarrrml2rml();
-  const quads = y2r.convert(yaml);
-  const writer = new N3.Writer({
-    prefixes: {
-      rr: namespaces.rr,
-      rdf: namespaces.rdf,
-      rdfs: namespaces.rdfs,
-      fnml: namespaces.fnml,
-      fno: namespaces.fno,
-      rml: namespaces.rml,
-      ql: namespaces.ql
-    }
-  });
+    const yaml = fs.readFileSync(yarrrmlFilePath, 'utf-8');
+    const y2r = new yarrrml2rml();
+    const quads = y2r.convert(yaml);
+    const writer = new N3.Writer({
+      prefixes: {
+        rr: namespaces.rr,
+        rdf: namespaces.rdf,
+        rdfs: namespaces.rdfs,
+        fnml: namespaces.fnml,
+        fno: namespaces.fno,
+        rml: namespaces.rml,
+        ql: namespaces.ql
+      }
+    });
 
-  writer.addQuads(quads);
-  writer.end((error, result) => {
-    if (error) {
-      console.error(error);
-    } else {
-      fs.writeFileSync(rmlFilePath, result);
-    }
+    writer.addQuads(quads);
+    writer.end((error, result) => {
+      if (error) {
+        console.error(error);
+        reject(error);
+      } else {
+        fs.writeFileSync(rmlFilePath, result);
+        resolve();
+      }
+    });
   });
 }
 

@@ -1,11 +1,8 @@
-#!/usr/bin/env node
-
 /**
  * author: Pieter Heyvaert (pheyvaer.heyvaert@ugent.be)
  * Ghent University - imec - IDLab
  */
 
-const inquirer = require('inquirer');
 const fs = require('fs-extra');
 const path = require('path');
 const kgPath = path.resolve('.', 'kg');
@@ -13,101 +10,34 @@ const websitePath = path.resolve('.', 'website');
 const csvPath = path.resolve(kgPath, 'csv');
 const downloadGithub = require('download-git-repo');
 const parseAuthor = require('parse-author');
-const validator = require('validator');
 
-console.log(fs.readFileSync(path.resolve(__dirname, 'intro.txt'), 'utf-8'));
+function generate(answers, directory) {
+  console.log('\nDownloading required files...');
 
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'Event name',
-      default: 'My Acadamic Event'
-    },
-    {
-      type: 'input',
-      name: 'baseurl',
-      message: 'Base URL',
-      default: 'http://example.com/',
-      validate: (data) => {
-        return validator.isURL(data) ? true : 'Please provide a valid URL.';
-      }
-    },
-    {
-      type: 'input',
-      name: 'organizers',
-      message: 'Organizers (name <email> (website))'
-    },
-    {
-      type: 'input',
-      name: 'topics',
-      message: 'Topics'
-    },
-    {
-      type: 'input',
-      name: 'twitter',
-      message: 'Twitter'
-    },
-    {
-      type: 'input',
-      name: 'email',
-      message: 'Email',
-      validate: (data) => {
-        return validator.isEmail(data) ? true : 'Please provide a valid email or leave empty.';
-      }
-    },
-    {
-      type: 'input',
-      name: 'startdate',
-      message: 'Start date'
-    },
-    {
-      type: 'input',
-      name: 'enddate',
-      message: 'End date'
-    },
-    {
-      type: 'input',
-      name: 'location',
-      message: 'Location'
-    },
-    {
-      type: 'input',
-      name: 'superevent',
-      message: 'Super event'
+  downloadGithub('kgb-workshop/sad-generator', directory, function (err) {
+    //console.log(err ? 'Error' : 'Success');
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Download complete.');
+      console.log('Updating CSV files...');
+      writeGeneralInfo(answers);
+      writeTopics(answers);
+      writeOrganizers(answers);
+
+      // create empty CSV files
+      fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
+      fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
+      fs.writeFileSync(path.resolve(csvPath, 'subtopics.csv'), 'id,subtopic');
+
+      // remove files
+      fs.removeSync(path.resolve(kgPath, 'data.nt'));
+      fs.removeSync(path.resolve(websitePath, 'docs'));
+
+      console.log('Update complete.');
     }
-  ])
-  .then(answers => {
-    //console.log(answers);
-    console.log('\nDownloading required files...');
-
-    downloadGithub('kgb-workshop/sad-generator', process.cwd(), function (err) {
-      //console.log(err ? 'Error' : 'Success');
-      if (err) {
-        console.error(err);
-      } else {
-        console.log('Download complete.');
-        console.log('Updating CSV files...');
-        writeGeneralInfo(answers);
-        writeTopics(answers);
-        writeOrganizers(answers);
-
-        // create empty CSV files
-        fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
-        fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
-        fs.writeFileSync(path.resolve(csvPath, 'subtopics.csv'), 'id,subtopic');
-
-        // remove files
-        fs.removeSync(path.resolve(kgPath, 'data.nt'));
-        fs.removeSync(path.resolve(websitePath, 'docs'));
-
-        console.log('Update complete.');
-      }
-    })
-    //download('https://raw.githubusercontent.com/kgb-workshop/sad-generator/master/kg/mapping.yml', path.resolve(kgPath, 'mapping.yml'));
   });
-
+}
 
 function writeGeneralInfo(answers) {
   let csv = 'id,title,duration,startDate,endDate,location,superEvent,twitter,email\n';
@@ -152,3 +82,5 @@ function writeTopics(answers) {
 
   fs.writeFileSync(path.resolve(csvPath, 'topics.csv'), csv);
 }
+
+module.exports = generate;

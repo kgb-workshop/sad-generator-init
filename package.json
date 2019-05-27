@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "sad-generator-init": "index.js"
+    "sad-generator-init": "bin/cli.js"
   },
   "author": "Pieter Heyvaert <pheyvaer.heyvaert@ugent.be> (https://pieterheyvaert.com)",
   "license": "MIT",
@@ -20,5 +20,6 @@
   },
   "devDependencies": {
     "terminalizer": "^0.6.1"
-  }
+  },
+  "repository": "https://github.com/kgb-workshop/sad-generator-init"
 }

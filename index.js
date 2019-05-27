@@ -10,6 +10,15 @@ const websitePath = path.resolve('.', 'website');
 const csvPath = path.resolve(kgPath, 'csv');
 const downloadGithub = require('download-git-repo');
 const parseAuthor = require('parse-author');
+const replaceInFile = require('replace');
+const yarrrml2rml = require('@rmlio/yarrrml-parser/lib/yarrrml2rml');
+const N3 = require('n3');
+const namespaces = require('prefix-ns').asMap();
+
+namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
+namespaces.fnml = 'http://semweb.mmlab.be/ns/fnml#';
+namespaces.fno = 'http://w3id.org/function/ontology#';
+namespaces.ql = 'http://semweb.mmlab.be/ns/ql#';
 
 function generate(answers, directory) {
   console.log('\nDownloading required files...');
@@ -29,6 +38,9 @@ function generate(answers, directory) {
       fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
       fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
       fs.writeFileSync(path.resolve(csvPath, 'subtopics.csv'), 'id,subtopic');
+
+      // update YARRRML and RML rules
+      replaceBaseURLRules(path.resolve(kgPath, 'mapping.yml'), path.resolve(kgPath, 'mapping.rml.ttl'), answers.baseurl);
 
       // remove files
       fs.removeSync(path.resolve(kgPath, 'data.nt'));
@@ -81,6 +93,40 @@ function writeTopics(answers) {
   });
 
   fs.writeFileSync(path.resolve(csvPath, 'topics.csv'), csv);
+}
+
+function replaceBaseURLRules(yarrrmlFilePath, rmlFilePath, baseURL) {
+  replaceInFile({
+    regex: "http://example.com/resources/",
+    replacement: baseURL,
+    paths: [yarrrmlFilePath],
+    recursive: false,
+    silent: true,
+  });
+
+  const yaml = fs.readFileSync(yarrrmlFilePath, 'utf-8');
+  const y2r = new yarrrml2rml();
+  const quads = y2r.convert(yaml);
+  const writer = new N3.Writer({
+    prefixes: {
+      rr: namespaces.rr,
+      rdf: namespaces.rdf,
+      rdfs: namespaces.rdfs,
+      fnml: namespaces.fnml,
+      fno: namespaces.fno,
+      rml: namespaces.rml,
+      ql: namespaces.ql
+    }
+  });
+
+  writer.addQuads(quads);
+  writer.end((error, result) => {
+    if (error) {
+      console.error(error);
+    } else {
+      fs.writeFileSync(rmlFilePath, result);
+    }
+  });
 }
 
 module.exports = generate;

@@ -11,9 +11,13 @@ const path = require('path');
 const validator = require('validator');
 const generate = require('../index');
 
-console.log(fs.readFileSync(path.resolve(__dirname, '../intro.txt'), 'utf-8'));
+if (process.argv.length > 2 && (process.argv[2] === '-h' || process.argv[2] === '--help')) {
+  console.log(fs.readFileSync(path.resolve(__dirname, '../help.txt'), 'utf-8'));
+} else {
+  console.log(fs.readFileSync(path.resolve(__dirname, '../intro.txt'), 'utf-8'));
 
-start();
+  start();
+}
 
 async function start() {
   const answers = await inquirer
@@ -21,13 +25,13 @@ async function start() {
       {
         type: 'input',
         name: 'name',
-        message: 'Event name',
+        message: 'Name',
         default: 'My Acadamic Event'
       },
       {
         type: 'input',
         name: 'baseurl',
-        message: 'Base URL',
+        message: 'KG\'s base URL',
         default: 'http://example.com/',
         validate: (data) => {
           return validator.isURL(data) ? true : 'Please provide a valid URL.';

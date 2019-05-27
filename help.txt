@@ -1,0 +1,15 @@
+This utility will walk you through setting up the SAD generator.
+It only covers the most common items, and tries to guess sensible defaults.
+
+It asks for the following:
+
+- Name: name of the event.
+- KG's base URL: base URL of the knowledge graph that is generated.
+- Organizers: organizers of the event. An organizer is described according to the template "name <email> (website)", and multiple organizers are comma-separated.
+- Topics: topics of the event.
+- Twitter: Twitter handle of the event, without "@" at the beginning.
+- Email: main email address of the event.
+- Start date: start date of the event.
+- Stop date: stop date of the event.
+- Location: location of the event.
+- Super event: super event with which the event is co-located.

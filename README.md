@@ -9,6 +9,11 @@ A utility for the command line to set up the [SAD Generator](https://github.com/
 
 ![screencast](screencast/2019-05-24_0.0.1.gif)
 
+## Tests
+
+- Install dependencies: `npm i`.
+- Execute the tests: `npm test`.
+
 ## License
 
 [MIT License](LICENSE)

@@ -25,17 +25,17 @@ it('Basic test', async function() {
     startdate: '2019-05-27',
     enddate: '2019-05-29',
     twitter: 'uni_corn',
-    location: 'London, UK',
+    location: 'London',
     superevent: ''
   }, actualPath);
 
-  assert.equal(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'general-info.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'general-info.csv'), 'utf-8'));
-  assert.equal(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'important-dates.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'important-dates.csv'), 'utf-8'));
-  assert.equal(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'organizers.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'organizers.csv'), 'utf-8'));
-  assert.equal(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'pc.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'pc.csv'), 'utf-8'));
-  assert.equal(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'subtopics.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'subtopics.csv'), 'utf-8'));
-  assert.equal(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'topics.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'topics.csv'), 'utf-8'));
-  assert.equal(fs.readFileSync(path.resolve(actualPath, 'kg', 'mapping.yml'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'mapping.yml'), 'utf-8'));
+  assert.deepStrictEqual(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'general-info.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'general-info.csv'), 'utf-8').replace(/\n$/, ''));
+  assert.deepStrictEqual(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'important-dates.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'important-dates.csv'), 'utf-8'));
+  assert.deepStrictEqual(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'organizers.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'organizers.csv'), 'utf-8'));
+  assert.deepStrictEqual(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'pc.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'pc.csv'), 'utf-8').replace(/\r\n$/, ''));
+  assert.deepStrictEqual(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'subtopics.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'subtopics.csv'), 'utf-8'));
+  assert.deepStrictEqual(fs.readFileSync(path.resolve(actualPath, 'kg', 'csv', 'topics.csv'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'topics.csv'), 'utf-8'));
+  assert.deepStrictEqual(fs.readFileSync(path.resolve(actualPath, 'kg', 'mapping.yml'), 'utf-8'), fs.readFileSync(path.resolve(expectedPath, 'mapping.yml'), 'utf-8'));
 
   fs.removeSync(actualPath);
 });

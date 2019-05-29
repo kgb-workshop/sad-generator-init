@@ -9,6 +9,7 @@ const inquirer = require('inquirer');
 const fs = require('fs-extra');
 const path = require('path');
 const validator = require('validator');
+const parseTemplate = require('parse-author');
 const generate = require('../index');
 
 if (process.argv.length > 2 && (process.argv[2] === '-h' || process.argv[2] === '--help')) {
@@ -75,6 +76,21 @@ async function start() {
   },
   {
     type: 'input',
+    name: 'importantdates',
+    message: 'Important dates (date <label> (description))',
+    validate: (data) => {
+      const dates = data.split(',');
+      let i = 0;
+
+      while (i < dates.length && validateImportantDateString(dates[i])) {
+        i ++;
+      }
+
+      return i === dates.length ? true : 'Date and label are required.';
+    }
+  },
+  {
+    type: 'input',
     name: 'location',
     message: 'Location'
   },
@@ -87,7 +103,19 @@ async function start() {
   generate(extend(answers, answers2), process.cwd());
 }
 
+function validateImportantDateString(str) {
+  if (str !== '') {
+    const date = parseTemplate(str);
+
+    return date.name && date.email;
+  } else {
+    return true;
+  }
+}
+
 function extend(obj, src) {
-  Object.keys(src).forEach(function(key) { obj[key] = src[key]; });
+  Object.keys(src).forEach(function (key) {
+    obj[key] = src[key];
+  });
   return obj;
 }

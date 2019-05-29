@@ -6,7 +6,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const downloadGithub = require('download-git-repo');
-const parseAuthor = require('parse-author');
+const parseTemplate = require('parse-author');
 const replaceInFile = require('replace');
 const yarrrml2rml = require('@rmlio/yarrrml-parser/lib/yarrrml2rml');
 const N3 = require('n3');
@@ -38,9 +38,9 @@ function generate(answers, directory) {
         writeGeneralInfo(answers);
         writeTopics(answers);
         writeOrganizers(answers);
+        writeImportantDates(answers);
 
         // create empty CSV files
-        fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
         fs.writeFileSync(path.resolve(csvPath, 'pc.csv'), 'id,name,organization');
         fs.writeFileSync(path.resolve(csvPath, 'subtopics.csv'), 'id,subtopic');
 
@@ -76,7 +76,7 @@ function writeOrganizers(answers) {
 
   organizers.forEach(organizer => {
     if (organizer !== '') {
-      organizer = parseAuthor(organizer);
+      organizer = parseTemplate(organizer);
 
       if (organizer.name) {
         csv += organizer.name.replace(/ /g, '-').toLowerCase() + ',';
@@ -97,6 +97,33 @@ function writeOrganizers(answers) {
   });
 
   fs.writeFileSync(path.resolve(csvPath, 'organizers.csv'), csv);
+}
+
+function writeImportantDates(answers) {
+  const importantDates = answers.importantdates.split(',');
+  let csv = 'event,date,description\n';
+
+  importantDates.forEach(importantDate => {
+    if (importantDate !== '') {
+      importantDate = parseTemplate(importantDate);
+
+      if (importantDate.name && importantDate.email) {
+        const date = importantDate.name;
+        const label = importantDate.email;
+        let description = '';
+
+        if (importantDate.url) {
+          description = importantDate.url;
+        }
+
+        csv += `${label},${date},${description}\n`;
+      } else {
+        console.error('An important date should at least have a date and label.');
+      }
+    }
+  });
+
+  fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), csv);
 }
 
 function writeTopics(answers) {

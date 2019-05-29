@@ -11,5 +11,6 @@ It asks for the following:
 - Email: main email address of the event.
 - Start date: start date of the event.
 - Stop date: stop date of the event.
+- Important dates: important dates of the event. An important date is described according to the template "date <label> (description)", and multiple important dates are comma-separated. Date and label are required.
 - Location: location of the event.
 - Super event: super event with which the event is co-located.

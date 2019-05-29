@@ -26,6 +26,7 @@ it('Basic test', async function() {
     enddate: '2019-05-29',
     twitter: 'uni_corn',
     location: 'London',
+    importantdates: '2019-04-10 <Submission deadline>, 2019-05-15 <Notifications>',
     superevent: ''
   }, actualPath);
 

@@ -41,7 +41,7 @@ function generate(answers, directory) {
 
         // create empty CSV files
         fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
-        fs.writeFileSync(path.resolve(csvPath, 'important-dates.csv'), 'event,date,description');
+        fs.writeFileSync(path.resolve(csvPath, 'pc.csv'), 'id,name,organization');
         fs.writeFileSync(path.resolve(csvPath, 'subtopics.csv'), 'id,subtopic');
 
         // update YARRRML and RML rules
@@ -65,7 +65,7 @@ function writeGeneralInfo(answers) {
   csv += answers.name.replace(/ /g, '-').toLowerCase() + ',';
 
   //rest
-  csv += `${answers.name},,${answers.startdate},${answers.enddate},${answers.superevent},${answers.twitter},${answers.email}`;
+  csv += `${answers.name},,${answers.startdate},${answers.enddate},${answers.location},${answers.superevent},${answers.twitter},${answers.email}`;
 
   fs.writeFileSync(path.resolve(csvPath, 'general-info.csv'), csv);
 }

@@ -1,6 +1,6 @@
 {
   "name": "sad-generator-init",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CLI to set up the SAD Generator.",
   "main": "index.js",
   "scripts": {
